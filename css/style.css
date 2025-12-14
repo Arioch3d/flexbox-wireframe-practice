@@ -1,1 +1,44 @@
 @import url("./reset.css");
+/* Base styles for all screen sizes (mobile-first, single column) */
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "header"
+        "aside"
+        "main"
+        "footer";
+    gap: 15px;
+    padding: 15px;
+    min-height: 100vh;
+}
+
+header, aside, main, article, footer {
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+}
+
+header { background-color: #9b2767; grid-area: header; }
+aside { background-color: #1f77b4; grid-area: aside; }
+main { background-color: #3b9b65; grid-area: main; }
+article { background-color: #f63e6e; margin-bottom: 10px; }
+article:last-child { margin-bottom: 0; }
+footer { background-color: #f77f00; grid-area: footer; }
+
+@media screen and (min-width: 768px) {
+    .container {
+        grid-template-columns: 1fr 2fr; 
+        grid-template-areas:
+            "header header"
+            "aside  main" 
+            "footer footer";
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+}
