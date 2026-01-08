@@ -18,6 +18,7 @@ header, aside, main, article, footer {
     border-radius: 5px;
     text-align: center;
     color: black;
+    width: 80%;
 }
 
 header { background-color: pink; grid-area: header; }
@@ -34,11 +35,33 @@ footer { background-color: gold; grid-area: footer; }
             "header header"
             "aside  main" 
             "footer footer";
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
     }
 
     main {
         display: flex;
+        flex: 3;
         flex-direction: column;
         justify-content: space-around;
+        margin-bottom: 0;
+        margin-left: 0;
+        margin-right: 0;
+        order: 2;
+    }
+
+    aside {
+        flex: 1;
+        margin-bottom: 0;
+        margin-left: 0;
+        margin-right: 0;
+        order: 1; /* Aside now displays first (on the left) */
+    }
+
+    /* Reset article margins within the flex main container */
+    article {
+        width: auto;
+        margin-top: 0;
     }
 }
