@@ -1,67 +1,71 @@
-@import url("./reset.css");
-/* Base styles for all screen sizes (mobile-first, single column) */
-.container {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-areas:
-        "header"
-        "main"
-        "aside"
-        "footer";
-    gap: 15px;
-    padding: 15px;
-    min-height: 100vh;
+* {
+    box-sizing: border-box; 
+    margin: 5px;
+    padding: 5px;
 }
 
+html, body {
+    font-family: sans-serif;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    width: 100%;
+    border: none;
+    padding: 0;
+    margin: 20px 0;
+    gap: 20px;
+}
 header, aside, main, article, footer {
     padding: 20px;
-    border-radius: 5px;
     text-align: center;
     color: black;
-    width: 80%;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
 }
 
-header { background-color: pink; grid-area: header; }
+header { background-color: purple; grid-area: header; }
 aside { background-color: lightblue; grid-area: aside; }
 main { background-color: #3b9b65; grid-area: main; }
 article { background-color: red; margin-bottom: 10px; }
 article:last-child { margin-bottom: 0; }
-footer { background-color: gold; grid-area: footer; }
+footer { background-color: orange; grid-area: footer; }
 
-@media screen and (min-width: 768px) {
-    .container {
-        grid-template-columns: 1fr 2fr; 
-        grid-template-areas:
-            "header header"
-            "aside  main" 
-            "footer footer";
-        display: flex;
-        justify-content: space-between;
-        gap: 20px;
-    }
 
-    main {
-        display: flex;
-        flex: 3;
-        flex-direction: column;
-        justify-content: space-around;
-        margin-bottom: 0;
-        margin-left: 0;
-        margin-right: 0;
-        order: 2;
+aside {
+    background-color: lightblue;
+    padding: 1rem;
+}
+
+main {
+    background-color: green;
+    padding: 20px;
+}
+
+article {
+    background-color: red;
+    margin-bottom:10px;
+    padding: 1rem;
+    margin: 0 0 10px;
+}
+
+@media (min-width: 768px) {
+    .content-wrapper {
+        flex-direction: row;
+        font-size: 16pt;
     }
 
     aside {
         flex: 1;
-        margin-bottom: 0;
-        margin-left: 0;
-        margin-right: 0;
-        order: 1; /* Aside now displays first (on the left) */
+        order: -1;
     }
 
-    /* Reset article margins within the flex main container */
-    article {
-        width: auto;
-        margin-top: 0;
-    }
+    main {
+        flex: 2;
+    }   
 }
